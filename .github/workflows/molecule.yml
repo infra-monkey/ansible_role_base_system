@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+defaults:
+  run:
+    working-directory: 'base_system'
 jobs:
   molecule-check:
     runs-on: ubuntu-latest
