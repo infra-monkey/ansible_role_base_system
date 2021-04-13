@@ -1,5 +1,7 @@
 ---
 galaxy_info:
+  role_name: base_system
+  namespace: infra_monkey
   author: Antoine Gatineau
   description: Install basic system dependencies
   company: Infra-Monkey
@@ -8,12 +10,10 @@ galaxy_info:
   platforms:
     - name: Redhat
       versions:
-        - 6
         - 7
         - 8
     - name: CentOS
       versions:
-        - 6
         - 7
         - 8
     - name: Debian

@@ -3,4 +3,4 @@
   hosts: all
   connection: local
   roles:
-    - role: "base_system"
+    - role: "infra_monkey.base_system"
