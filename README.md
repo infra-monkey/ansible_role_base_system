@@ -35,5 +35,5 @@ On Debian systems, `resolvconf` is replaced by `openresolv` for compatibility wi
 
 This role is tested using Molecule against:
 - Python 3.7 and 3.8
-- CentOS 6/7/8
+- CentOS 7/8
 - Debian 9/10
