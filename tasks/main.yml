@@ -11,5 +11,4 @@
   copy:
     content: 'export HISTTIMEFORMAT="%F %T "'
     dest: '/etc/profile.d/history-timeformat.sh'
-    state: present
 ...
