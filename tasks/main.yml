@@ -11,4 +11,7 @@
   copy:
     content: 'export HISTTIMEFORMAT="%F %T "'
     dest: '/etc/profile.d/history-timeformat.sh'
+    owner: root
+    group: root
+    mode: '0644'
 ...
