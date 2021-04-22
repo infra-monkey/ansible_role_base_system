@@ -7,4 +7,11 @@
 - name: "Call install-packages task for Debian like systems"
   include_tasks: install-packages-Debian.yml
   when: ansible_os_family == "Debian"
+- name: "Tuned history format for Bourne compatible shells (bash, ksh, ash)"
+  copy:
+    content: 'export HISTTIMEFORMAT="%F %T "'
+    dest: '/etc/profile.d/history-timeformat.sh'
+    owner: root
+    group: root
+    mode: '0644'
 ...
