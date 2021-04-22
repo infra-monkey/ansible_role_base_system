@@ -6,7 +6,7 @@
   when: ansible_os_family == "RedHat"
 - name: "Call install-packages task for Debian like systems"
   include_tasks: install-packages-Debian.yml
-  when: ansible_os_family == "Debian
+  when: ansible_os_family == "Debian"
 - name: "Tuned history format for Bourne compatible shells (bash, ksh, ash)"
   copy:
     content: 'export HISTTIMEFORMAT="%F %T "'
