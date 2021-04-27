@@ -13,5 +13,5 @@ pkglist_absent:
   - resolvconf
 backport_repo_name: "stretch-backports"
 backport_pkglist:
-  - udev
+  - udev/stretch-backports
 ...
