@@ -1,3 +1,4 @@
 ---
 use_debian_backports: false
+journal_forward_to_syslog: "no"
 ...

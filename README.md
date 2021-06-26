@@ -10,6 +10,7 @@ On Debian systems, `resolvconf` is replaced by `openresolv` for compatibility wi
 | Name  | Type | Required | Default Value | Description |
 | ----- | ---- | -------- | ------------- | ----------- |
 | use_debian_backports | boolean | no | `false` | Should the backports repo be enabled on debian |
+| journal_forward_to_syslog | string | no | "no" | Accepted values are "yes" and "no" |
 
 # Installed Packages
 

@@ -14,4 +14,12 @@
     owner: root
     group: root
     mode: '0644'
+- name: "Configure journal forwarding to syslog"
+  lineinfile:
+    path: /etc/systemd/journald.conf
+    regexp: '^ForwardToSyslog='
+    line: "ForwardToSyslog={{ journal_forward_to_syslog }}"
+    owner: root
+    group: root
+    mode: '0644'
 ...
