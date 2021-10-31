@@ -22,8 +22,6 @@ provisioner:
       timeout: 30
       system_warinings: false
       collections_paths: ./default/collections
-      env:
-        ANSIBLE_COLLECTIONS_PATH: ./default/collections
 verifier:
   name: ansible
 lint: |
