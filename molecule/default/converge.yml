@@ -10,8 +10,8 @@
   vars:
     debian_fallback_to_unstable: true
     debian_fallback_to_testing: true
-  collections:
-    - name: freeipa.ansible_freeipa
+  # collections:
+  #   - name: freeipa.ansible_freeipa
   roles:
     - role: "infra_monkey.base_system"
     - role: freeipa.ansible_freeipa.ipaclient
