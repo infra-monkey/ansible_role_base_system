@@ -13,6 +13,8 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
+    env:
+      ANSIBLE_COLLECTIONS_PATH: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
 provisioner:
   name: ansible
   playbooks:
@@ -22,8 +24,7 @@ provisioner:
       timeout: 30
       system_warinings: false
       collections_paths: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
-  env:
-    ANSIBLE_COLLECTIONS_PATH: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
+  
 verifier:
   name: ansible
 lint: |
