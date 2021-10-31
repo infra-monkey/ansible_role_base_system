@@ -13,17 +13,10 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
-    env:
-      ANSIBLE_COLLECTIONS_PATH: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
 provisioner:
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
-  config_options:
-    defaults:
-      timeout: 30
-      system_warinings: false
-      collections_paths: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
   
 verifier:
   name: ansible
@@ -31,18 +24,3 @@ lint: |
   set -e
   yamllint .
   ansible-lint
-# scenario:
-#   name: default
-#   test_sequence:
-#     - dependency
-#     - lint
-#     - destroy
-#     - dependency
-#     - syntax
-#     - create
-#     - prepare
-#     - converge
-#     - idempotence
-#     - side_effect
-#     - verify
-#     - destroy
