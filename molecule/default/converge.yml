@@ -4,8 +4,8 @@
   connection: local
   become: true
   vars:
-    debian_fallback_to_unstable: true
-    debian_fallback_to_testing: true
+    debian_fallback_to_unstable: false
+    debian_fallback_to_testing: false
   roles:
     - role: "infra_monkey.base_system"
     # - role: freeipa.ansible_freeipa.ipaclient
