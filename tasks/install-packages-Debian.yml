@@ -1,4 +1,8 @@
 ---
+- name: "Update apt cache"
+  apt:
+    update_cache: true
+
 - name: "Default to stable repo"
   copy:
     src: "preference_debian_stable"
