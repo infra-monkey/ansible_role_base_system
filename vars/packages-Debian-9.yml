@@ -6,7 +6,6 @@ pkglist:
   - zsh-syntax-highlighting
   - acl
   - openresolv
-  - python-apt
   - vim
   - ssl-cert
 pkglist_absent:
