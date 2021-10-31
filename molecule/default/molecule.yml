@@ -1,6 +1,8 @@
 ---
 dependency:
   name: galaxy
+  options:
+    requirements-file: molecule/default/collections.yml
 driver:
   name: docker
 platforms:
@@ -15,6 +17,7 @@ provisioner:
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  
 verifier:
   name: ansible
 lint: |
