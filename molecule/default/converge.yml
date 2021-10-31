@@ -14,4 +14,4 @@
     - freeipa.ansible_freeipa
   roles:
     - role: "infra_monkey.base_system"
-    - role: ipaclient
+    - role: freeipa.ansible_freeipa.ipaclient
