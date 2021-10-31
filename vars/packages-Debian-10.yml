@@ -1,5 +1,6 @@
 ---
 pkglist:
+  - libcrypt1
   - apt-transport-https
   - htop
   - zsh
@@ -9,7 +10,6 @@ pkglist:
   - python3-apt
   - vim
   - ssl-cert
-  - libcryptsetup12
 pkglist_absent:
   - resolvconf
 backport_repo_name: "buster-backports"
