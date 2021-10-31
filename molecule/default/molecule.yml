@@ -2,7 +2,7 @@
 dependency:
   name: galaxy
   options:
-    requirements-file: default/collections.yml
+    requirements-file: molecule/default/collections.yml
 driver:
   name: docker
 platforms:
