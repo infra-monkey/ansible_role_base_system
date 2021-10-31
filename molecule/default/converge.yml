@@ -3,10 +3,10 @@
   hosts: all
   connection: local
   become: true
-  dependency:
-    name: galaxy
-    options:
-      requirements-file: collections.yml
+  # dependency:
+  #   name: galaxy
+  #   options:
+  #     requirements-file: collections.yml
   vars:
     debian_fallback_to_unstable: true
     debian_fallback_to_testing: true
