@@ -1,6 +1,7 @@
 ---
 pkglist:
   - apt-transport-https
+  - python3-apt
   - htop
   - zsh
   - zsh-syntax-highlighting
