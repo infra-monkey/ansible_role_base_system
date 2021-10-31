@@ -21,7 +21,7 @@ provisioner:
     defaults:
       timeout: 30
       system_warinings: false
-      collections_paths: ./default/collections
+      collections_paths: /home/runner/.cache/molecule/base_system/default/collections/ansible_collections
 verifier:
   name: ansible
 lint: |
