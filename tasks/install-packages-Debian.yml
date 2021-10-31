@@ -55,10 +55,10 @@
 - name: "Ensure unwanted packages are absent"
   apt:
     name: "{{ pkglist_absent }}"
-    update_cache: true
-    autoremove: true
+    update_cache: false
+    autoremove: false
     state: absent
-    purge: true
+    purge: false
 
 - name: "Install required packages"
   apt:
