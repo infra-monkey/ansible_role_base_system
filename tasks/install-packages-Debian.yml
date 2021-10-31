@@ -1,4 +1,12 @@
 ---
+- name: "Default to stable repo"
+  copy:
+    src: "preference_debian_stable"
+    dest: "/etc/apt/preferences.d/debian_stable"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
 - name: "Enable backports repo"
   template:
     src: "backports-{{ ansible_os_family }}.list.j2"
@@ -7,6 +15,43 @@
     group: 'root'
     mode: '0644'
   when: use_debian_backports
+
+- name: "Enable testing repo"
+  template:
+    src: "debian_testing_source.list.j2"
+    dest: "/etc/apt/sources.list.d/debian_testing_source.list"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: debian_fallback_to_testing
+
+- name: "Fallback to testing repo"
+  copy:
+    src: "preference_debian_testing"
+    dest: "/etc/apt/preferences.d/debian_testing"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: debian_fallback_to_testing
+
+- name: "Enable unstable repo"
+  template:
+    src: "debian_unstable_source.list.j2"
+    dest: "/etc/apt/sources.list.d/debian_unstable_source.list"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: debian_fallback_to_unstable
+
+- name: "Fallback to unstable repo"
+  copy:
+    src: "preference_debian_unstable"
+    dest: "/etc/apt/preferences.d/debian_unstable"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  when: debian_fallback_to_unstable
+
 - name: "Ensure unwanted packages are absent"
   apt:
     name: "{{ pkglist_absent }}"
@@ -14,12 +59,14 @@
     autoremove: true
     state: absent
     purge: true
+
 - name: "Install required packages"
   apt:
     name: "{{ pkglist }}"
     update_cache: true
     autoremove: true
     state: present
+
 - name: "Install required backport packages"
   apt:
     name: "{{ backport_pkglist }}"

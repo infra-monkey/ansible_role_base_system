@@ -11,6 +11,8 @@ On Debian systems, `resolvconf` is replaced by `openresolv` for compatibility wi
 | ----- | ---- | -------- | ------------- | ----------- |
 | use_debian_backports | boolean | no | `false` | Should the backports repo be enabled on debian |
 | journal_forward_to_syslog | string | no | "no" | Accepted values are "yes" and "no" |
+| debian_fallback_to_testing | boolean | no | `false` | Should the debian fallback to the testing repo when a package is not available in the stable repo. |
+| debian_fallback_to_unstable | boolean | no | `false` | Should the debian fallback to the unstable repo when a package is not available in the stable repo. (example of freeipa-client in bullseye) |
 
 # Installed Packages
 
