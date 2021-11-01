@@ -1,5 +1,6 @@
 ---
 pkglist:
+  - apt-utils
   - apt-transport-https
   - python-apt
   - htop
