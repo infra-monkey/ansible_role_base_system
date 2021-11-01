@@ -1,12 +1,12 @@
 ---
-- name: "Update apt cache"
-  apt:
-    update_cache: true
+# - name: "Update apt cache"
+#   apt:
+#     update_cache: true
 
-- name: "Ensure libc6 is present"
-  apt:
-    name: "libc6"
-    state: present
+# - name: "Ensure libc6 is present"
+#   apt:
+#     name: "libc6"
+#     state: present
 
 - name: "Default to stable repo"
   copy:
