@@ -9,4 +9,8 @@
           apt:
             upgrade: dist
             update_cache: true
+        - name: "Install required packages"
+          apt:
+            name: "apt-utils"
+            update_cache: true
       when: ansible_os_family == "Debian"
