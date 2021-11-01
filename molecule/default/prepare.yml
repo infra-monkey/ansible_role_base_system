@@ -5,7 +5,7 @@
   become: true
   tasks:
     - block:
-        - name: "Update apt cache"
+        - name: "Update distribution"
           apt:
             upgrade: dist
             update_cache: true
