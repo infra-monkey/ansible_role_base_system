@@ -5,8 +5,8 @@
   become: true
   tasks:
     - block:
-      - name: "Update apt cache"
-        apt:
-          upgrade: dist
-          update_cache: true
-    when: ansible_os_family == "Debian"
+        - name: "Update apt cache"
+          apt:
+            upgrade: dist
+            update_cache: true
+      when: ansible_os_family == "Debian"
