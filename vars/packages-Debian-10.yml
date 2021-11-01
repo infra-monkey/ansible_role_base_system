@@ -1,6 +1,5 @@
 ---
 pkglist:
-  - apt-utils
   - apt-transport-https
   - htop
   - zsh
