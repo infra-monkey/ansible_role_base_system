@@ -16,7 +16,7 @@ platforms:
 provisioner:
   name: ansible
   options:
-    diff: true
+    vvv: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 
