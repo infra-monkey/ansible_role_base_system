@@ -3,9 +3,9 @@
   apt:
     update_cache: true
 
-- name: "Ensure apt-utils is present"
+- name: "Ensure libc6 is present"
   apt:
-    name: "apt-utils"
+    name: "libc6"
     state: present
 
 - name: "Default to stable repo"
