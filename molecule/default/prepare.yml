@@ -13,4 +13,6 @@
           apt:
             name: "apt-utils"
             update_cache: true
+        - name: "list apt conf files"
+          command: "ls -lRa /etc/apt/*"
       when: ansible_os_family == "Debian"
