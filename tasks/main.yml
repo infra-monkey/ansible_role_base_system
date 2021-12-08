@@ -29,7 +29,7 @@
     question: locales/default_environment_locale
     value: '{{ item.value }}'
     vtype: select
-  loop: "{{ debian_locales }}"
+  loop: "{{ debian_default_locale }}"
   notify:
     - rebuild debian locales database
   when: ansible_os_family == "Debian"
