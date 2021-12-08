@@ -9,6 +9,8 @@ pkglist:
   - python3-apt
   - vim
   - ssl-cert
+  - debconf
+  - debconf-utils
 pkglist_absent:
   - resolvconf
 backport_repo_name: "buster-backports"

@@ -4,4 +4,7 @@ journal_forward_to_syslog: "no"
 debian_repo_hostname: "deb.debian.org"
 debian_fallback_to_unstable: false
 debian_fallback_to_testing: false
+debian_locales:
+  - value: "en_US.UTF-8"
+    state: present
 ...

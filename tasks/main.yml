@@ -22,4 +22,25 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: select default locale
+  debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: '{{ item.value }}'
+    vtype: select
+  loop: "{{ debian_locales }}"
+  notify:
+    - rebuild debian locales database
+  when: ansible_os_family == "Debian"
+- name: /etc/locale.gen
+  lineinfile:
+    dest: /etc/locale.gen
+    regexp: '^#? ?{{ item.value }}'
+    line: '{{ item.value }}'
+    state: "{{ item.state }}"
+  loop: "{{ debian_locales }}"
+  notify:
+    - rebuild locales database
+  when: ansible_os_family == "Debian"
 ...
