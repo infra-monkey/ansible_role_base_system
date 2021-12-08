@@ -43,4 +43,8 @@
   notify:
     - rebuild locales database
   when: ansible_os_family == "Debian"
+- name: Configure locale to '{{ debian_lc_locale }}'
+  command: "localectl set-locale LC_ALL={{ debian_lc_locale }}"
+  changed_when: false
+  when: ansible_os_family == "Debian"
 ...
