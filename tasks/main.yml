@@ -53,6 +53,7 @@
   with_items:
     - dpkg-reconfigure locales -f noninteractive
     - /usr/sbin/locale-gen
+  when: ansible_os_family == "Debian"
 
 - name: Configure locale to '{{ debian_lc_locale }}'
   command: "localectl set-locale LC_ALL={{ debian_lc_locale }}"
