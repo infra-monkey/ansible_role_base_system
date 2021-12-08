@@ -30,13 +30,7 @@
     value: '{{ debian_default_locale }}'
     vtype: select
   when: ansible_os_family == "Debian"
-
-# - name: rebuild debian locales database
-#   command: "{{ item }}"
-#   changed_when: false
-#   with_items:
-#     - dpkg-reconfigure locales -f noninteractive
-#     - /usr/sbin/locale-gen
+  notify: rebuild debian locales database
 
 - name: /etc/locale.gen
   lineinfile:
@@ -46,17 +40,6 @@
     state: "{{ item.state }}"
   loop: "{{ debian_locales }}"
   when: ansible_os_family == "Debian"
+  notify: rebuild debian locales database
 
-- name: rebuild debian locales database
-  command: "{{ item }}"
-  changed_when: false
-  with_items:
-    - dpkg-reconfigure locales -f noninteractive
-    - /usr/sbin/locale-gen
-  when: ansible_os_family == "Debian"
-
-- name: Configure locale to '{{ debian_lc_locale }}'
-  command: "localectl set-locale LC_ALL={{ debian_lc_locale }}"
-  changed_when: false
-  when: ansible_os_family == "Debian"
 ...
