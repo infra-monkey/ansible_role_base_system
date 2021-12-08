@@ -8,4 +8,7 @@ pkglist:
   - python3-apt
   - vim
   - ssl-cert
+  - debconf
+  - debconf-utils
+  - locales
 ...

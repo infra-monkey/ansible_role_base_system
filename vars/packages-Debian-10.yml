@@ -11,6 +11,7 @@ pkglist:
   - ssl-cert
   - debconf
   - debconf-utils
+  - locales
 pkglist_absent:
   - resolvconf
 backport_repo_name: "buster-backports"
