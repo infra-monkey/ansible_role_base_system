@@ -32,12 +32,12 @@
   loop: "{{ debian_default_locale }}"
   when: ansible_os_family == "Debian"
 
-- name: rebuild debian locales database
-  command: "{{ item }}"
-  changed_when: false
-  with_items:
-    - dpkg-reconfigure locales -f noninteractive
-    - /usr/sbin/locale-gen
+# - name: rebuild debian locales database
+#   command: "{{ item }}"
+#   changed_when: false
+#   with_items:
+#     - dpkg-reconfigure locales -f noninteractive
+#     - /usr/sbin/locale-gen
 
 - name: /etc/locale.gen
   lineinfile:
