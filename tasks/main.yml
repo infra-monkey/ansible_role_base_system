@@ -29,7 +29,7 @@
     question: locales/default_environment_locale
     value: '{{ debian_default_locale }}'
     vtype: select
-  changed_when: false
+  #changed_when: false
   when: ansible_os_family == "Debian"
 
 - name: /etc/locale.gen
@@ -38,6 +38,7 @@
     regexp: '^#? ?{{ item.value }}'
     line: '{{ item.value }}'
     state: "{{ item.state }}"
+    create: true
   loop: "{{ debian_locales }}"
   when: ansible_os_family == "Debian"
   notify: rebuild debian locales database
