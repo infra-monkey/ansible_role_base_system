@@ -27,9 +27,8 @@
   debconf:
     name: locales
     question: locales/default_environment_locale
-    value: '{{ item.value }}'
+    value: '{{ debian_default_locale }}'
     vtype: select
-  loop: "{{ debian_default_locale }}"
   when: ansible_os_family == "Debian"
 
 # - name: rebuild debian locales database
