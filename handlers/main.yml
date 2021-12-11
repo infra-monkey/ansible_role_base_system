@@ -1,7 +1,0 @@
----
-- name: rebuild debian locales database
-  command: "{{ item }}"
-  changed_when: false
-  with_items:
-    - dpkg-reconfigure locales -f noninteractive
-    - /usr/sbin/locale-gen

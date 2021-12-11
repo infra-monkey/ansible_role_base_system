@@ -95,6 +95,9 @@
     line: '{{ item.value }}'
     state: "{{ item.state }}"
     create: true
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
   loop: "{{ debian_locales }}"
   changed_when: false
 
