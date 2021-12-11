@@ -79,4 +79,31 @@
     autoremove: true
     state: latest
   when: use_debian_backports and backport_pkglist is defined
-...
+
+- name: select default locale
+  debconf:
+    name: locales
+    question: locales/default_environment_locale
+    value: '{{ debian_default_locale }}'
+    vtype: select
+  changed_when: false
+
+- name: /etc/locale.gen
+  lineinfile:
+    dest: /etc/locale.gen
+    regexp: '^#? ?{{ item.value }}'
+    line: '{{ item.value }}'
+    state: "{{ item.state }}"
+    create: true
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  loop: "{{ debian_locales }}"
+  changed_when: false
+
+- name: rebuild debian locales database
+  command: "{{ item }}"
+  changed_when: false
+  with_items:
+    - dpkg-reconfigure locales -f noninteractive
+    - /usr/sbin/locale-gen
