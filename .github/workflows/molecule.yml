@@ -21,7 +21,7 @@ jobs:
         distro:
           - centos7
           - centos8
-          - centos9
+          #- centos9
           - debian9
           - debian10
           - debian11
