@@ -18,7 +18,13 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: use_debian_backports
+  when: use_debian_backports|bool
+
+- name: "Disable backports repo"
+  file:
+    path: "/etc/apt/sources.list.d/{{ backport_repo_name }}.list"
+    state: absent
+  when: not use_debian_backports|bool
 
 - name: "Enable testing repo"
   template:
@@ -27,7 +33,13 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: debian_fallback_to_testing
+  when: debian_fallback_to_testing|bool
+
+- name: "Disable testing repo"
+  file:
+    path: "/etc/apt/sources.list.d/debian_testing_source.list"
+    state: absent
+  when: not debian_fallback_to_testing|bool
 
 - name: "Fallback to testing repo"
   copy:
@@ -36,7 +48,13 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: debian_fallback_to_testing
+  when: debian_fallback_to_testing|bool
+
+- name: "Disable fallback to testing repo"
+  file:
+    path: "/etc/apt/preferences.d/debian_testing"
+    state: absent
+  when: not debian_fallback_to_testing|bool
 
 - name: "Enable unstable repo"
   template:
@@ -45,7 +63,13 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: debian_fallback_to_unstable
+  when: debian_fallback_to_unstable|bool
+
+- name: "Disable unstable repo"
+  file:
+    path: "/etc/apt/sources.list.d/debian_unstable_source.list"
+    state: absent
+  when: not debian_fallback_to_unstable|bool
 
 - name: "Fallback to unstable repo"
   copy:
@@ -54,7 +78,13 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
-  when: debian_fallback_to_unstable
+  when: debian_fallback_to_unstable|bool
+
+- name: "Disable fallback to unstable repo"
+  file:
+    path: "/etc/apt/preferences.d/debian_unstable"
+    state: absent
+  when: not debian_fallback_to_unstable|bool
 
 - name: "Ensure unwanted packages are absent"
   apt:

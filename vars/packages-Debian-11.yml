@@ -15,6 +15,4 @@ pkglist:
 pkglist_absent:
   - resolvconf
 backport_repo_name: "bullseye-backports"
-backport_pkglist:
-  - udev
 ...
