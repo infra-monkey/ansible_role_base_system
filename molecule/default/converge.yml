@@ -7,5 +7,6 @@
     debian_fallback_to_unstable: false
     debian_fallback_to_testing: false
   roles:
-    - role: "infra_monkey.base_system"
+    - role: "base_system"
+    #- role: "infra_monkey.base_system"
     # - role: freeipa.ansible_freeipa.ipaclient
