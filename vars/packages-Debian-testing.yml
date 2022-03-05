@@ -11,4 +11,6 @@ pkglist:
   - debconf
   - debconf-utils
   - locales
+  - unzip
+  - tar
 ...

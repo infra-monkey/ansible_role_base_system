@@ -12,6 +12,8 @@ pkglist:
   - debconf
   - debconf-utils
   - locales
+  - unzip
+  - tar
 pkglist_absent:
   - resolvconf
 backport_repo_name: "bullseye-backports"
