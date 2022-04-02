@@ -1,11 +1,11 @@
 ---
 - name: "Enable EPEL repo"
-  package:
+  ansible.builtin.package:
     name: "epel-release"
     state: present
   when: enable_epel is defined and enable_epel
 - name: "Install required packages"
-  package:
+  ansible.builtin.package:
     name: "{{ pkglist }}"
     state: present
 ...

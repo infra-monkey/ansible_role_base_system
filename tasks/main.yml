@@ -1,21 +1,21 @@
 ---
 - name: "Include os specific variables"
-  include_vars: "packages-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+  ansible.builtin.include_vars: "packages-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
 - name: "Call install-packages task for RedHat like systems"
-  include_tasks: install-packages-RedHat.yml
+  ansible.builtin.include_tasks: install-packages-RedHat.yml
   when: ansible_os_family == "RedHat"
 - name: "Call install-packages task for Debian like systems"
-  include_tasks: install-packages-Debian.yml
+  ansible.builtin.include_tasks: install-packages-Debian.yml
   when: ansible_os_family == "Debian"
 - name: "Tuned history format for Bourne compatible shells (bash, ksh, ash)"
-  copy:
+  ansible.builtin.copy:
     content: 'export HISTTIMEFORMAT="%F %T "'
     dest: '/etc/profile.d/history-timeformat.sh'
     owner: root
     group: root
     mode: '0644'
 - name: "Configure journal forwarding to syslog"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/systemd/journald.conf
     regexp: '^ForwardToSyslog='
     line: "ForwardToSyslog={{ journal_forward_to_syslog }}"
