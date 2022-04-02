@@ -12,6 +12,7 @@ pkglist:
   - debconf
   - debconf-utils
   - locales
+  - locales-all
   - unzip
   - tar
 pkglist_absent:
