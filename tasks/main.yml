@@ -22,3 +22,11 @@
     owner: root
     group: root
     mode: '0644'
+- name: "Configure journal storage"
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    regexp: '^Storage='
+    line: "Storage={{ journal_storage }}"
+    owner: root
+    group: root
+    mode: '0644'

@@ -1,6 +1,7 @@
 ---
 use_debian_backports: false
 journal_forward_to_syslog: "no"
+journal_storage: "volatile"
 debian_repo_hostname: "deb.debian.org"
 debian_fallback_to_unstable: false
 debian_fallback_to_testing: false
