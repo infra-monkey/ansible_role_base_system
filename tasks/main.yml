@@ -22,6 +22,7 @@
     owner: root
     group: root
     mode: '0644'
+  notify: 'Restart systemd-journald'
 - name: "Configure journal storage"
   ansible.builtin.lineinfile:
     path: /etc/systemd/journald.conf
@@ -30,3 +31,4 @@
     owner: root
     group: root
     mode: '0644'
+  notify: 'Restart systemd-journald'
