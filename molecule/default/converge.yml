@@ -7,4 +7,4 @@
     debian_fallback_to_unstable: false
     debian_fallback_to_testing: false
   roles:
-    - role: "."
+    - role: "ansible_role_base_system"
