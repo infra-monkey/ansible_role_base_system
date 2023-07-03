@@ -10,4 +10,3 @@ debian_locales:
   - value: "en_US.UTF-8"
     state: present
 debian_lc_locale: "en_US.UTF-8"
-...

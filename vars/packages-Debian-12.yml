@@ -18,4 +18,3 @@ pkglist:
 pkglist_absent:
   - resolvconf
 backport_repo_name: "bookworm-backports"
-...
