@@ -110,7 +110,7 @@
     state: latest
   when: use_debian_backports and backport_pkglist is defined
 
-- name: select default locale
+- name: "Select default locale"
   ansible.builtin.debconf:
     name: locales
     question: locales/default_environment_locale
@@ -118,7 +118,7 @@
     vtype: select
   changed_when: false
 
-- name: /etc/locale.gen
+- name: "Configure locales"
   ansible.builtin.lineinfile:
     dest: /etc/locale.gen
     regexp: '^#? ?{{ item.value }}'
@@ -131,7 +131,7 @@
   loop: "{{ debian_locales }}"
   changed_when: false
 
-- name: rebuild debian locales database
+- name: "Rebuild debian locales database"
   ansible.builtin.command: "{{ item }}"
   changed_when: false
   with_items:
