@@ -3,13 +3,10 @@
   ansible.builtin.apt:
     update_cache: true
 
-- name: "Default to stable repo"
-  ansible.builtin.copy:
-    src: "preference_debian_stable"
-    dest: "/etc/apt/preferences.d/debian_stable"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
+- name: "Disable apt preference"
+  ansible.builtin.file:
+    path: "/etc/apt/preferences.d/debian_stable"
+    state: absent
 
 - name: "Enable backports repo"
   ansible.builtin.template:
@@ -25,66 +22,6 @@
     path: "/etc/apt/sources.list.d/{{ backport_repo_name }}.list"
     state: absent
   when: not use_debian_backports|bool
-
-- name: "Enable testing repo"
-  ansible.builtin.template:
-    src: "debian_testing_source.list.j2"
-    dest: "/etc/apt/sources.list.d/debian_testing_source.list"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  when: debian_fallback_to_testing|bool
-
-- name: "Disable testing repo"
-  ansible.builtin.file:
-    path: "/etc/apt/sources.list.d/debian_testing_source.list"
-    state: absent
-  when: not debian_fallback_to_testing|bool
-
-- name: "Fallback to testing repo"
-  ansible.builtin.copy:
-    src: "preference_debian_testing"
-    dest: "/etc/apt/preferences.d/debian_testing"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  when: debian_fallback_to_testing|bool
-
-- name: "Disable fallback to testing repo"
-  ansible.builtin.file:
-    path: "/etc/apt/preferences.d/debian_testing"
-    state: absent
-  when: not debian_fallback_to_testing|bool
-
-- name: "Enable unstable repo"
-  ansible.builtin.template:
-    src: "debian_unstable_source.list.j2"
-    dest: "/etc/apt/sources.list.d/debian_unstable_source.list"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  when: debian_fallback_to_unstable|bool
-
-- name: "Disable unstable repo"
-  ansible.builtin.file:
-    path: "/etc/apt/sources.list.d/debian_unstable_source.list"
-    state: absent
-  when: not debian_fallback_to_unstable|bool
-
-- name: "Fallback to unstable repo"
-  ansible.builtin.copy:
-    src: "preference_debian_unstable"
-    dest: "/etc/apt/preferences.d/debian_unstable"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
-  when: debian_fallback_to_unstable|bool
-
-- name: "Disable fallback to unstable repo"
-  ansible.builtin.file:
-    path: "/etc/apt/preferences.d/debian_unstable"
-    state: absent
-  when: not debian_fallback_to_unstable|bool
 
 - name: "Ensure unwanted packages are absent"
   ansible.builtin.apt:
